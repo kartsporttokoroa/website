@@ -311,21 +311,30 @@ section{ padding:72px 0; }
 .img-box.thin{ clip-path:polygon(6% 0, 100% 0, 94% 100%, 0 100%); min-height:180px; }
 .img-box.medium{ clip-path:polygon(4% 0, 100% 0, 96% 100%, 0 100%); min-height:300px; }
 
-/* Live webcam embed container — plain box (no clip-path) so the
-   third-party widget renders at its natural size without being cropped. */
+/* Live webcam embed container — the webcam.io widget renders at its own
+   fixed intrinsic size regardless of the "x" option, so this box hugs the
+   widget's actual content width instead of stretching full-page and
+   leaving a large empty background around it. */
 .webcam-box{
-  margin-top:1.6em;
+  margin:1.6em 0 0;
+  width:fit-content;
+  max-width:100%;
   background:#151515;
   border:1px solid #2a2a2a;
   border-radius:4px;
   padding:16px;
-  min-height:420px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  overflow:auto;
 }
 .webcam-box iframe, .webcam-box img{ max-width:100%; }
 .img-box.wide{ clip-path:polygon(2% 0, 100% 0, 98% 100%, 0 100%); min-height:380px; }
+
+/* Full-width aerial/establishing photo, e.g. the Home "Our Home" section */
+.aerial-photo{
+  clip-path:polygon(1.5% 0, 100% 0, 98.5% 100%, 0 100%);
+  overflow:hidden;
+  line-height:0;
+}
+.aerial-photo img{ width:100%; height:auto; display:block; }
 
 /* ---------- Stats strip ---------- */
 .stats{ display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--c-grey-line); border-bottom:1px solid var(--c-grey-line); }
