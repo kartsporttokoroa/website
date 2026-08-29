@@ -1,0 +1,462 @@
+/* ==========================================================================
+   Tokoroa Kart Club — Design System
+   Built on the Karting New Zealand brand guidelines (v1.0, June 2026)
+   Typefaces: Coda (display, replacing Coanda) / Rubik (bold, replacing
+   Replica Pro Bold) / Inter (body & light weights, replacing Replica Pro)
+   Colours: Black / White / Cobalt Blue / Aqua (KNZ brand) + club Orange
+   ========================================================================== */
+
+:root{
+  --c-black:#0a0a0a;
+  --c-black-true:#000000;
+  --c-white:#ffffff;
+  --c-off-white:#f5f5f3;
+  --c-cobalt:#005fdc;
+  --c-aqua:#00ffff;
+  --c-orange:#f6993f;
+  --c-orange-dark:#d97a1f;
+  --c-grey:#6b6b6b;
+  --c-grey-line:#e4e2de;
+
+  --font-display:'Coda', 'Rubik', sans-serif;   /* Headlines — replaces Coanda */
+  --font-bold:'Rubik', sans-serif;               /* Bold copy / UI — replaces Replica Pro Bold */
+  --font-body:'Inter', sans-serif;               /* Body / light copy — replaces Replica Pro Light/Regular */
+
+  --container-max:1180px;
+  --skew-angle:-12deg;
+  --radius:2px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:var(--font-body);
+  font-weight:400;
+  color:var(--c-black);
+  background:var(--c-white);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4{
+  font-family:'Rubik', sans-serif;
+  font-weight:600;
+  line-height:1.08;
+  margin:0 0 .5em;
+  letter-spacing:.01em;
+  text-transform:uppercase;
+}
+h1{ font-size:clamp(2.4rem, 5.5vw, 4.2rem); }
+h2{ font-size:clamp(1.7rem, 3.4vw, 2.6rem); }
+h3{ font-size:clamp(1.2rem, 2vw, 1.5rem); text-transform:none; }
+h4{ font-size:1.05rem; text-transform:none; letter-spacing:0; }
+
+p{ margin:0 0 1em; color:#2c2c2c; }
+a{ color:var(--c-cobalt); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+strong, b{ font-family:var(--font-bold); font-weight:700; }
+
+ul, ol{ padding-left:1.3em; margin:0 0 1.2em; }
+li{ margin-bottom:.5em; color:#2c2c2c; }
+
+img{ max-width:100%; display:block; }
+
+.wrap{
+  max-width:var(--container-max);
+  margin:0 auto;
+  padding:0 24px;
+}
+
+.eyebrow{
+  font-family:var(--font-bold);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:.78rem;
+  color:var(--c-orange-dark);
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+  margin-bottom:.9em;
+}
+.eyebrow::before{
+  content:'';
+  width:22px; height:3px;
+  background:var(--c-orange);
+  display:inline-block;
+  transform:skewX(var(--skew-angle));
+}
+.eyebrow.cobalt{ color:var(--c-cobalt); }
+.eyebrow.cobalt::before{ background:var(--c-cobalt); }
+.eyebrow.aqua{ color:#0aa5a5; } /* darkened aqua for AA contrast on white */
+.eyebrow.aqua::before{ background:var(--c-aqua); }
+.section-dark .eyebrow.aqua{ color:var(--c-aqua); }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+  font-family:var(--font-bold);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-size:.85rem;
+  padding:.95em 1.7em;
+  border:2px solid transparent;
+  border-radius:var(--radius);
+  cursor:pointer;
+  transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.btn:hover{ text-decoration:none; transform:translateY(-2px); }
+.btn-primary{ background:var(--c-orange); color:var(--c-black-true); }
+.btn-primary:hover{ background:var(--c-orange-dark); color:var(--c-white); }
+.btn-dark{ background:var(--c-black-true); color:var(--c-white); }
+.btn-dark:hover{ background:var(--c-orange); color:var(--c-black-true); }
+.btn-outline{ background:transparent; color:var(--c-white); border-color:var(--c-white); }
+.btn-outline:hover{ background:var(--c-white); color:var(--c-black-true); }
+.btn-outline-dark{ background:transparent; color:var(--c-black-true); border-color:var(--c-black-true); }
+.btn-outline-dark:hover{ background:var(--c-black-true); color:var(--c-white); }
+
+/* ---------- Header / Nav ---------- */
+.site-header{
+  position:sticky; top:0; z-index:100;
+  background:var(--c-black-true);
+  border-bottom:3px solid var(--c-orange);
+}
+.site-header .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-top:14px;
+  padding-bottom:14px;
+}
+.brand-logo img{ height:34px; width:auto; }
+.brand-logo{ display:flex; align-items:center; }
+
+.main-nav{ display:flex; align-items:center; gap:8px; }
+.main-nav a{
+  font-family:var(--font-bold);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  font-size:.82rem;
+  color:var(--c-white);
+  padding:.65em .9em;
+  border-radius:var(--radius);
+  transition:color .15s ease, background .15s ease;
+}
+.main-nav a:hover{ color:var(--c-black-true); background:var(--c-orange); text-decoration:none; }
+.main-nav a.is-active{ color:var(--c-orange); }
+.main-nav a.is-active:hover{ color:var(--c-black-true); }
+
+.nav-cta{ margin-left:6px; }
+
+.nav-toggle{
+  display:none;
+  background:none; border:2px solid var(--c-white); border-radius:var(--radius);
+  width:42px; height:38px; cursor:pointer; position:relative;
+}
+.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+  content:''; position:absolute; left:9px; right:9px; height:2px; background:var(--c-white);
+}
+.nav-toggle span{ top:50%; transform:translateY(-1px); }
+.nav-toggle span::before{ top:-8px; }
+.nav-toggle span::after{ top:8px; }
+
+@media (max-width:860px){
+  .nav-toggle{ display:inline-block; }
+  .main-nav{
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--c-black-true);
+    flex-direction:column; align-items:stretch;
+    padding:10px 24px 20px;
+    border-bottom:3px solid var(--c-orange);
+    display:none;
+  }
+  .main-nav.is-open{ display:flex; }
+  .main-nav a{ padding:.9em .2em; border-bottom:1px solid rgba(255,255,255,.1); }
+  .nav-cta{ margin-left:0; margin-top:10px; }
+  .site-header{ position:relative; }
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  background:var(--c-black-true);
+  color:var(--c-white);
+  overflow:hidden;
+  padding:100px 0 90px;
+}
+.hero .wrap{ position:relative; z-index:1; max-width:800px; }
+.hero p.lead{ color:#d8d8d8; font-size:1.15rem; max-width:640px; }
+.hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:1.6em; }
+
+.hero-sub{ padding:64px 0; background:var(--c-black-true); color:var(--c-white); position:relative; overflow:hidden; }
+.hero-sub h1{ font-size:clamp(2rem,4.4vw,3.2rem); color:var(--c-white); }
+.hero-sub p{ color:var(--c-white); }
+.hero-sub p.lead{ color:#d8d8d8; font-size:1.15rem; max-width:640px; }
+.hero-sub .wrap{ position:relative; z-index:1; }
+
+/* ---------- KNZ "Lines" graphic device ----------
+   Nested parallel strokes that bend around a corner — derived from the
+   wordmark geometry, evoking the racing line through a circuit. Colour is
+   set via the wrapping element's `color` (SVG uses stroke="currentColor"),
+   and orientation via transforms on .lines-graphic. Decorative only. */
+.lines-graphic{
+  position:absolute;
+  pointer-events:none;
+  z-index:0;
+  line-height:0;
+}
+.lines-graphic svg{ display:block; width:100%; height:100%; overflow:visible; }
+.lines-graphic.orange{ color:var(--c-orange); }
+.lines-graphic.cobalt{ color:var(--c-cobalt); }
+.lines-graphic.aqua{ color:var(--c-aqua); }
+
+.lines-hero,
+.lines-hero-sub{
+  top:-30px; right:-20px;
+  width:260px; height:230px;
+  opacity:.55;
+  transform:scaleX(-1);
+}
+@media (max-width:760px){
+  .lines-hero,
+  .lines-hero-sub{ width:170px; height:150px; opacity:.4; }
+}
+
+/* Lines graphic bridging an image container and a headline, per KNZ
+   "Lines in use" application example. Sits on top of the boundary between
+   the two grid items. */
+.lines-bridge-wrap{ position:relative; }
+.lines-bridge{
+  width:150px; height:150px;
+  opacity:.9;
+}
+.lines-bridge.pos-tl{ top:-10px; left:-10px; }
+.lines-bridge.pos-tr{ top:-10px; right:-10px; transform:scaleX(-1); }
+@media (max-width:760px){ .lines-bridge{ display:none; } }
+
+/* ---------- Sections ---------- */
+section{ padding:72px 0; }
+.section-alt{ background:var(--c-off-white); }
+.section-dark{ background:var(--c-black-true); color:var(--c-white); }
+.section-dark p{ color:#d8d8d8; }
+.section-dark h2, .section-dark h3{ color:var(--c-white); }
+
+.grid{ display:grid; gap:28px; }
+.grid-2{ grid-template-columns:repeat(2,1fr); }
+.grid-3{ grid-template-columns:repeat(3,1fr); }
+.grid-4{ grid-template-columns:repeat(4,1fr); }
+@media (max-width:900px){ .grid-3,.grid-4{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px){ .grid-2,.grid-3,.grid-4{ grid-template-columns:1fr; } }
+
+.card{
+  background:var(--c-white);
+  border:1px solid var(--c-grey-line);
+  border-radius:var(--radius);
+  padding:28px;
+  position:relative;
+}
+.card::before{
+  content:'';
+  position:absolute; top:0; left:0; width:34px; height:5px;
+  background:var(--c-orange);
+  transform:skewX(var(--skew-angle));
+  transform-origin:left top;
+}
+.section-dark .card{ background:#151515; border-color:#2a2a2a; }
+
+/* Rotate the KNZ secondary colours through repeating card grids so orange,
+   cobalt and aqua all get airtime alongside the club colour. */
+.grid .card:nth-of-type(3n+2)::before{ background:var(--c-cobalt); }
+.grid .card:nth-of-type(3n+3)::before{ background:#0aa5a5; }
+.section-dark .grid .card:nth-of-type(3n+3)::before{ background:var(--c-aqua); }
+
+.card-list{ list-style:none; padding:0; margin:0; }
+.card-list li{
+  display:flex; gap:12px; align-items:flex-start;
+  padding:14px 0;
+  border-bottom:1px solid var(--c-grey-line);
+}
+.card-list li:last-child{ border-bottom:none; }
+.card-list li::before{
+  content:''; flex:0 0 auto; width:10px; height:10px; margin-top:.4em;
+  background:var(--c-orange); transform:skewX(var(--skew-angle));
+}
+.card-list li:nth-of-type(3n+2)::before{ background:var(--c-cobalt); }
+.card-list li:nth-of-type(3n+3)::before{ background:#0aa5a5; }
+
+/* ---------- Image containers (KNZ "Image Containers" system) ---------- */
+.img-box{
+  position:relative;
+  background:#151515;
+  color:#8a8a8a;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+  font-family:var(--font-bold); font-weight:700;
+  text-transform:uppercase; letter-spacing:.06em; font-size:.85rem;
+  min-height:220px;
+  border:1px dashed #444;
+  overflow:hidden;
+}
+.img-box span{ padding:0 10px; }
+.img-box img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:0; }
+.img-box.has-photo{ border:none; }
+.img-box.thin{ clip-path:polygon(6% 0, 100% 0, 94% 100%, 0 100%); min-height:180px; }
+.img-box.medium{ clip-path:polygon(4% 0, 100% 0, 96% 100%, 0 100%); min-height:300px; }
+.img-box.wide{ clip-path:polygon(2% 0, 100% 0, 98% 100%, 0 100%); min-height:380px; }
+
+/* ---------- Stats strip ---------- */
+.stats{ display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--c-grey-line); border-bottom:1px solid var(--c-grey-line); }
+.stats .stat{ flex:1 1 200px; padding:26px 10px; text-align:center; border-left:1px solid var(--c-grey-line); }
+.stats .stat:first-child{ border-left:none; }
+.stat .num{ font-family:var(--font-display); font-size:2.1rem; color:var(--c-orange-dark); display:block; }
+.stat .label{ font-family:var(--font-bold); font-weight:700; text-transform:uppercase; font-size:.75rem; letter-spacing:.08em; color:var(--c-grey); }
+.stat:nth-of-type(2) .num{ color:var(--c-cobalt); }
+.stat:nth-of-type(3) .num{ color:#0aa5a5; }
+.stat:nth-of-type(4) .num{ color:var(--c-orange-dark); }
+
+/* ---------- Tables ---------- */
+table{ width:100%; border-collapse:collapse; margin:1em 0 1.6em; }
+th, td{ text-align:left; padding:14px 16px; border-bottom:1px solid var(--c-grey-line); }
+th{ font-family:var(--font-bold); text-transform:uppercase; font-size:.75rem; letter-spacing:.06em; color:var(--c-grey); }
+.section-dark th, .section-dark td{ border-bottom:1px solid #2a2a2a; }
+.section-dark th{ color:#9a9a9a; }
+
+.price{ font-family:var(--font-display); font-size:1.4rem; color:var(--c-orange-dark); }
+
+/* ---------- Notice / callout ---------- */
+.notice{
+  border-left:4px solid var(--c-orange);
+  background:#fff6ec;
+  padding:18px 22px;
+  margin:1.4em 0;
+  border-radius:var(--radius);
+}
+.notice p:last-child{ margin-bottom:0; }
+.notice.info{ border-left-color:var(--c-cobalt); background:#eef4ff; }
+.notice.aqua{ border-left-color:#0aa5a5; background:#e9fbfb; }
+
+/* ---------- Timeline (Getting Started steps) ---------- */
+.steps{ list-style:none; margin:0; padding:0; counter-reset:step; }
+.step{
+  position:relative;
+  padding:0 0 40px 64px;
+  border-left:2px solid var(--c-grey-line);
+  margin-left:20px;
+}
+.step:last-child{ border-left-color:transparent; padding-bottom:0; }
+.step::before{
+  counter-increment:step;
+  content:counter(step);
+  position:absolute; left:-20px; top:0;
+  width:40px; height:40px;
+  background:var(--c-orange);
+  color:var(--c-black-true);
+  font-family:var(--font-display);
+  font-size:1.1rem;
+  display:flex; align-items:center; justify-content:center;
+  clip-path:polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+}
+.step h3{ margin-bottom:.4em; }
+.step:nth-of-type(3n+2)::before{ background:var(--c-cobalt); color:var(--c-white); }
+.step:nth-of-type(3n+3)::before{ background:#0aa5a5; color:var(--c-white); }
+
+/* ---------- Race day list ---------- */
+.race-list{ list-style:none; padding:0; margin:0; }
+.race-list li{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 18px;
+  border-bottom:1px solid var(--c-grey-line);
+  font-family:var(--font-bold); font-weight:700;
+}
+.race-list li.past{ color:#a8a8a8; text-decoration:line-through; }
+.race-list li.next{ background:#fff6ec; border-left:4px solid var(--c-orange); padding-left:14px; }
+.tag{
+  font-family:var(--font-body); font-weight:600; text-transform:uppercase; font-size:.7rem;
+  letter-spacing:.06em; background:var(--c-orange); color:var(--c-black-true);
+  padding:.3em .7em; border-radius:2px;
+}
+.tag.cobalt{ background:var(--c-cobalt); color:var(--c-white); }
+.tag.aqua{ background:var(--c-aqua); color:var(--c-black-true); }
+
+.calendar-embed{
+  border:2px dashed var(--c-grey-line);
+  background:var(--c-off-white);
+  padding:40px 24px;
+  text-align:center;
+  color:var(--c-grey);
+  font-family:var(--font-bold);
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  font-size:.9rem;
+  border-radius:var(--radius);
+}
+.calendar-embed code{
+  display:block;
+  margin-top:14px;
+  background:var(--c-black-true);
+  color:#9be29b;
+  font-family:'SFMono-Regular', Menlo, Consolas, monospace;
+  text-transform:none;
+  letter-spacing:0;
+  font-size:.78rem;
+  padding:14px 16px;
+  border-radius:var(--radius);
+  text-align:left;
+  overflow-x:auto;
+}
+
+/* ---------- CTA band ---------- */
+.cta-band{
+  background:var(--c-orange);
+  color:var(--c-black-true);
+  padding:56px 0;
+  text-align:center;
+}
+.cta-band h2{ color:var(--c-black-true); }
+.cta-band p{ color:#3a2a10; max-width:560px; margin:0 auto 1.4em; }
+
+/* ---------- Footer ---------- */
+.site-footer{ background:var(--c-black-true); color:#c9c9c9; padding:56px 0 30px; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:36px; margin-bottom:36px; }
+@media (max-width:760px){ .footer-grid{ grid-template-columns:1fr; } }
+.site-footer h4{ color:var(--c-white); font-family:var(--font-bold); text-transform:uppercase; font-size:.8rem; letter-spacing:.08em; margin-bottom:1em; }
+.site-footer a{ color:#c9c9c9; }
+.site-footer a:hover{ color:var(--c-orange); }
+.site-footer .brand-logo{ align-items:center; gap:16px; margin-bottom:14px; }
+.site-footer .brand-logo img{ height:30px; margin-bottom:0; }
+.site-footer .brand-logo .club-inc-logo{ height:46px; }
+.footer-links{ list-style:none; padding:0; margin:0; }
+.footer-links li{ margin-bottom:.6em; color:#c9c9c9; }
+.social-row{ display:flex; gap:14px; margin-top:14px; }
+.social-row a{
+  width:38px; height:38px; border:1px solid #444; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-bold); font-size:.85rem;
+}
+.social-row a:hover{ border-color:var(--c-orange); color:var(--c-orange); }
+.social-row a:nth-of-type(2):hover{ border-color:var(--c-aqua); color:var(--c-aqua); }
+.footer-bottom{
+  border-top:1px solid #222; padding-top:22px;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  font-size:.82rem; color:#7a7a7a;
+}
+
+/* Utility */
+.text-center{ text-align:center; }
+.mt-0{ margin-top:0; }
+.small{ font-size:.85rem; color:var(--c-grey); }
+.divider-line{
+  height:4px; width:70px; background:var(--c-orange);
+  transform:skewX(var(--skew-angle));
+  margin:0 auto 1.4em;
+}
+.divider-line.cobalt{ background:var(--c-cobalt); }
+.divider-line.aqua{ background:var(--c-aqua); }
