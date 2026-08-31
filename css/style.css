@@ -206,7 +206,11 @@ img{ max-width:100%; display:block; }
    Nested parallel strokes that bend around a corner — derived from the
    wordmark geometry, evoking the racing line through a circuit. Colour is
    set via the wrapping element's `color` (SVG uses stroke="currentColor"),
-   and orientation via transforms on .lines-graphic. Decorative only. */
+   and orientation via transforms on .lines-graphic. Decorative only.
+   The hero corner treatment uses KNZ's own supplied "Shape" artwork
+   (assets/graphics/knz-line-shape-*.png, pre-coloured aqua rasters)
+   rather than the hand-drawn straight-line SVG, so .lines-graphic img
+   sits alongside the older .lines-graphic svg rule below. */
 .lines-graphic{
   position:absolute;
   pointer-events:none;
@@ -214,20 +218,20 @@ img{ max-width:100%; display:block; }
   line-height:0;
 }
 .lines-graphic svg{ display:block; width:100%; height:100%; overflow:visible; }
+.lines-graphic img{ display:block; width:100%; height:100%; object-fit:contain; object-position:top right; }
 .lines-graphic.orange{ color:var(--c-orange); }
 .lines-graphic.cobalt{ color:var(--c-cobalt); }
 .lines-graphic.aqua{ color:var(--c-aqua); }
 
 .lines-hero,
 .lines-hero-sub{
-  top:-30px; right:-20px;
+  top:0; right:0;
   width:260px; height:230px;
-  opacity:.55;
-  transform:scaleX(-1);
+  opacity:.7;
 }
 @media (max-width:760px){
   .lines-hero,
-  .lines-hero-sub{ width:170px; height:150px; opacity:.4; }
+  .lines-hero-sub{ width:170px; height:150px; opacity:.5; }
 }
 
 /* Lines graphic bridging an image container and a headline, per KNZ
